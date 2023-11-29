@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 11-4</title>
+</head>
+<body>
+<script>
+    let userNumber = prompt("Будь ласка, введіть число від 0 до 10:");
+    let message = "default";
+    switch (userNumber) {
+        case '0':
+            message = "нуль";
+            break;
+        case '1':
+            message = "один";
+            break;
+        case '2':
+            message = "два";
+            break;
+        case '3':
+            message = "три";
+            break;
+        case '4':
+            message = "чотири";
+            break;
+        case '5':
+            message = "п'ять";
+            break;
+        case '6':
+            message = "шість";
+            break;
+        case '7':
+            message = "сім";
+            break;
+        case '8':
+            message = "вісім";
+            break;
+        case '9':
+            message = "дев'ять";
+            break;
+        case '10':
+            message = "десять";
+            break;
+        default:
+            document.write("<p>Введене число не входить в діапазон від 0 до 10.</p>")
+            break;
+    }
+    if (message !== "default") {
+        document.write("<p>В породі"+ " " + message + " " + "мінералів.</p>");
+    }
+</script>
+</body>
+</html>

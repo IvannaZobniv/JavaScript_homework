@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 11-5</title>
+    <style>
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th:first-child,
+        tr:first-child td {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <script>
+        for (let i =0; i <= 9; i++) {
+            document.write("<tr>");
+            for (let j = 1; j <= 9; j++) {
+                if (j === 1) {
+                    document.write(`<th>${i}</th>`);
+                }
+                if (i === 0) {
+                    document.write(`<td>${j}</td>`);
+                } else {
+                    document.write(`<td>${i * j}</td>`);
+                }
+            }
+            document.write("</tr>");
+        }
+    </script>
+</table>
+</body>
+</html>
