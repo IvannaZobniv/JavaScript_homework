@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 12-5</title>
+</head>
+<body>
+<script>
+    function parseName() {
+        let fullName = prompt("Введіть ваше ПІБ (прізвище ім'я по-батькові через пробіл):");
+        // Розділяємо введений рядок на три частини
+        let nameParts = fullName.split(' ');
+
+        if (nameParts.length === 3) {
+            document.getElementById("userData").innerHTML = `
+                    <p>Ваші дані:</p>
+                    <p>Прізвище: ${nameParts[0]}</p>
+                    <p>Ім'я: ${nameParts[1]}</p>
+                    <p>По-батькові: ${nameParts[2]}</p>
+                    <p>Вітаємо Вас з реєстрацією на нашому сайті!</p>
+                `;
+        } else {
+            alert("Введіть ПІБ у форматі 'Прізвище Ім'я По-батькові'");
+        }
+    }
+</script>
+    <button onclick="parseName()">Введіть ваше ПІБ</button>
+    <div id="userData"></div>
+</body>
+</html>

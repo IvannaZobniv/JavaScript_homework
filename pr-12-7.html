@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 12-7</title>
+</head>
+<body>
+<script>
+    function roundArrayNumbers() {
+        let numberArray = prompt("Введіть масив чисел через кому (наприклад, 34.82, 12.90, 17.01, 78.51):");
+        let method = prompt("Введіть метод округлення (round, ceil або floor):");
+
+        if (numberArray && method) {
+            let arr = numberArray.split(',').map(function(num) {
+                return parseFloat(num);
+            });
+
+            if (method !== "round" && method !== "ceil" && method !== "floor") {
+                console.error("Неправильно вказаний метод округлення!");
+                return;
+            }
+
+            let roundedArray = arr.map(function(num) {
+                return Math[method](num);
+            });
+
+            document.getElementById("inputArray").innerHTML = `var numberArray = [${arr.join(', ')}];`;
+            document.getElementById("method").innerHTML = `numb(numberArray, "${method}");`;
+            document.getElementById("result").innerHTML = `Результат буде: [${roundedArray.join(', ')}];`;
+        } else {
+            console.error("Не вказано масив або метод округлення!");
+        }
+    }
+</script>
+    <button onclick="roundArrayNumbers()">Введіть числа</button>
+    <p id="inputArray"></p>
+    <p id="method"></p>
+    <p id="result"></p>
+</body>
+</html>

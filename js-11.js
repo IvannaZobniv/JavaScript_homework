@@ -1,23 +1,23 @@
 let min = 0;
 let max = 100;
 let pickedNumber;
-let rightNumber;
+let maxNumber;
 
 do {
     pickedNumber = Math.floor((min + max) / 2);
-    rightNumber = prompt(`Ваш номер ${pickedNumber}? (Введіть "забагато", "замало", або "правильно")`);
-    if (rightNumber === "забагато") {
+    maxNumber = prompt(`Ваш номер ${pickedNumber}? (Введіть "забагато", "замало", або "правильно")`);
+    if (maxNumber === "забагато") {
         max = pickedNumber - 1;
-    } else if (rightNumber === "замало") {
+    } else if (maxNumber === "замало") {
         min = pickedNumber + 1;
     }
     if (min > max) {
         alert("Ви обманули! Числа не існує в заданому діапазоні.");
         break;
     }
-} while (rightNumber !== "правильно");
+} while (maxNumber !== "правильно");
 
-if (rightNumber === "правильно") {
+if (maxNumber === "правильно") {
     alert(`Ура! Я вгадав твій номер, це ${pickedNumber}!`);
 }
 

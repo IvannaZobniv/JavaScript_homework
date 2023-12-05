@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 12-2</title>
+</head>
+<body>
+<script>
+    function calculateAverage(num1, num2) {
+        return (num1 + num2) / 2;
+    }
+
+    let firstNumberInput = prompt("Введіть перше число:");
+    let secondNumberInput = prompt("Введіть друге число:");
+
+    let firstNumber = parseFloat(firstNumberInput.replace(',', '.'));
+    let secondNumber = parseFloat(secondNumberInput.replace(',', '.'));
+
+    if (!isNaN(firstNumber) && !isNaN(secondNumber)) {
+        let result = calculateAverage(firstNumber, secondNumber);
+        let roundedResult = Math.round(result);
+        document.write(`<p>Середнє арифметичне: ${roundedResult}</p>`);
+    } else {
+        document.write(`<p>Ви ввели некоректні числа.</p>`);
+    }
+</script>
+</body>
+</html>

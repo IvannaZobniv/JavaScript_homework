@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 12-10</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #336699;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+
+</head>
+<body>
+<script>
+
+    // Функція f(x) для опису кривої радіоактивного розпаду
+    function f(x) {
+        return 10 * Math.pow(Math.E, (Math.log(0.5) / 5.27) * x);
+    }
+    // реалізація цієї функції у ітеративного підході
+    function radiationExposureIterative(start, stop, step) {
+        let totalRadiation = 0;
+        for (let i = start; i < stop; i += step) {
+            let currentRadiation = f(i) * step;
+            totalRadiation += currentRadiation;
+        }
+        return totalRadiation;
+    }
+    console.log(radiationExposureIterative(0, 5, 1)); // 39.10318784326239
+    console.log(radiationExposureIterative(5, 11, 1)); // 22.94241041057671
+    console.log(radiationExposureIterative(0, 11, 1)); // 62.0455982538
+    console.log(radiationExposureIterative(40, 100, 1.5)); // 0.434612356115
+
+    // реалізація функції у рекурсивному підході
+    function radiationExposureRecursive(start, stop, step) {
+        if (start >= stop) {
+            return 0;
+        } else {
+            let currentRadiation = f(start) * step;
+            return currentRadiation + radiationExposureRecursive(start + step, stop, step);
+        }
+    }
+    console.log(radiationExposureRecursive(0, 5, 1)); // 39.10318784326239
+    console.log(radiationExposureRecursive(5, 11, 1)); // 22.94241041057671
+    console.log(radiationExposureRecursive(0, 11, 1)); // 62.0455982538
+    console.log(radiationExposureRecursive(40, 100, 1.5)); // 0.434612356115
+
+    let table = "<table><tr><th>Test case</th><th>Iterative</th><th>Recursive</th></tr>";
+
+    function addRow(testCase,Iterative,Recursive ) {
+        table += `<tr><td>${testCase}</td><td>${Iterative}</td><td>${Recursive}</td></tr>`;
+    }
+
+    addRow("Test case 1: radiationExposure(0, 5, 1)", radiationExposureIterative(0, 5, 1), radiationExposureRecursive(0, 5, 1));
+    addRow("Test case 2: radiationExposure(5, 11, 1)", radiationExposureIterative(5, 11, 1), radiationExposureRecursive(5, 11, 1));
+    addRow("Test case 3: radiationExposure(0, 11, 1)", radiationExposureIterative(0, 11, 1), radiationExposureRecursive(0, 11, 1));
+    addRow("Test case 4: radiationExposure(40, 100, 1.5)", radiationExposureIterative(40, 100, 1.5), radiationExposureRecursive(40, 100, 1.5));
+    table += "</table>";
+
+    document.write(table);
+</script>
+</body>
+</html>

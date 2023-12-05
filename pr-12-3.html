@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 12-3</title>
+</head>
+<body>
+<script>
+    function multiplication(a, b) {
+        if (b === 1) {
+            return a;
+        } else {
+            return a + multiplication(a, b - 1); // Якщо b не дорівнює 1, викликаємо функцію зменшивши b на 1 та додаємо a
+        }
+    }
+    let firstNumber = parseInt(prompt("Введіть перше число:"));
+    let secondNumber = parseInt(prompt("Введіть друге число:"));
+
+    let result = multiplication(firstNumber, secondNumber);
+    document.write(`<p>Множення: ${result}</p>`);
+
+</script>
+</body>
+</html>

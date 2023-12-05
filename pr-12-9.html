@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 12-9</title>
+</head>
+<body>
+<script>
+    function MenuItem(title, color, url) {
+        this.title = title;
+        this.color = color;
+        this.url = url;
+        this.show = function() {
+            let container = document.createElement('div');
+            container.style.color = this.color;
+            container.innerHTML = `
+                    <h3>${this.title}</h3>
+                    <p>Color: ${this.color}</p>
+                    <p>URL: ${this.url}</p>
+                `;
+            document.body.appendChild(container);
+        };
+        console.log(`Title: ${this.title}, Color: ${this.color}, URL: ${this.url}`);
+    }
+
+    // Створення екземпляру об'єкту MenuItem
+    let menuItem1 = new MenuItem('Home', 'blue', 'https://www.google.com/');
+    let menuItem = new MenuItem('About', 'green', 'https://www.google.com/');
+
+    menuItem1.show();
+    menuItem.show();
+</script>
+</body>
+</html>

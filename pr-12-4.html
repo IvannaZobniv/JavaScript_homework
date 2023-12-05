@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 12-4</title>
+</head>
+<body>
+<script>
+    function guessNumber() {
+        let min = 0;
+        let max = 100;
+
+        while (min <= max) {
+            let guess = Math.floor((min + max) / 2);
+            let response = prompt(`Чи число ${guess} правильне? (введіть "замало" або "забагато" або "правильно")`);
+
+            switch (response) {
+                case "замало":
+                    min = guess + 1;
+                    break;
+                case "забагато":
+                    max = guess - 1;
+                    break;
+                case "правильно":
+                    alert(`Ура! Я вгадав число: ${guess}`);
+                    return null;
+            }
+
+            if (min > 100 || max < 0) {
+                alert("Ви обманули! Число не існує в заданому діапазоні.");
+                return null;
+            }
+        }
+
+        alert(`Я не зміг вгадати число.`);
+        return null;
+    }
+
+    guessNumber();
+</script>
+</body>
+</html>

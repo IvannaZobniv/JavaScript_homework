@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 12-1</title>
+</head>
+<body>
+<script>
+    function generateMineralWord(number) {
+        if (number === 1) {
+            return "мінерал";
+        } else if (number >= 2 && number <= 4) {
+            return "мінерали";
+        } else if (number >= 5 && number <= 10) {
+            return "мінералів";
+        }
+    }
+
+    let userNumber = parseInt(prompt("Будь ласка, введіть число від 0 до 10:"));
+
+    if (!isNaN(userNumber) && userNumber >= 0 && userNumber <= 10) {
+        let word = generateMineralWord(userNumber);
+        document.write(`<p>В породі ${userNumber} ${word}.</p>`);
+    } else {
+        document.write(`<p>Введене число не входить в діапазон від 0 до 10.</p>`);
+    }
+
+</script>
+</body>
+</html>

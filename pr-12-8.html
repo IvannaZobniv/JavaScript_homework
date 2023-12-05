@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 12-8</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        .highlight {
+            background-color: #336698FF;
+            color: white;
+        }
+        .alternate1 {
+            background-color: #6A97F4FF;
+        }
+        .alternate2 {
+            background-color: #FDFDFDFF;
+        }
+    </style>
+</head>
+<body>
+<script>
+    function createArrayTable(rows, cols) {
+        let table = '<table>';
+
+        for (let i = 0; i < rows; i++) {
+            let rowClass = i === 0 ? 'highlight' : (i % 4 === 1 || i % 4 === 3 ? 'alternate1' : 'alternate2');
+            table += `<tr class="${rowClass}">`;
+
+            for (let j = 0; j < cols; j++) {
+                if (i === 0) {
+                    table += `<td > ${j + 1} стовбець </td>`;
+                } else {
+                    let count = (i * cols) + (j + 1);
+                    table += `<td>${count}</td>`;
+                }
+            }
+            table += '</tr>';
+        }
+        table += '</table>';
+        document.body.innerHTML += table;
+    }
+
+    let rows = prompt("Введіть кількість рядків:");
+    let cols = prompt("Введіть кількість стовпчиків:");
+
+    createArrayTable(rows, cols);
+</script>
+</body>
+</html>
