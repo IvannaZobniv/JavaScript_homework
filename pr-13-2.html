@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 13-2</title>
+</head>
+<body>
+<script>
+    function displayTime() {
+        const currentTime = new Date();
+        console.log(`Поточний час: ${currentTime.toLocaleTimeString()}`);
+        document.getElementById('output').innerText = `Поточний час: ${currentTime.toLocaleTimeString()}`;
+    }
+    let timerId;
+    function startClock() {
+        timerId = setInterval(displayTime, 1000); // Виведення часу кожну секунду (1000 мс)
+    }
+    function stopClock() {
+        clearInterval(timerId);
+    }
+
+</script>
+    <button onclick="displayTime()">Вивести час</button><br>
+    <button onclick="startClock()">Запустити годинник</button><br>
+    <button onclick="stopClock()">Зупинити годинник</button>
+
+    <div id="output"></div>
+</body>
+</html>

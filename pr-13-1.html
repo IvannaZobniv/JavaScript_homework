@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 13-1</title>
+</head>
+<body>
+<script>
+    let openedWindows = [];
+    function openWindows() {
+        let windowContent = ['Window 1', 'Window 2', 'Window 3', 'Window 4', 'Window 5', 'Window 6', 'Window 7', 'Window 8', 'Window 9'];
+        let windowFeatures = 'width=300,height=200,top=100,left=100';
+
+        let counter = 0;
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                openedWindows[counter] = window.open('', '', windowFeatures);
+                openedWindows[counter].document.write(`<p>${windowContent[counter]}</p>`);
+                counter++;
+            }
+        }
+    }
+
+    function closeWindows() {
+        openedWindows.forEach(win => win.close());
+        openedWindows = [];
+    }
+</script>
+    <button onclick="openWindows()">Open Windows</button>
+    <button onclick="closeWindows()">Close Windows</button>
+</body>
+</html>

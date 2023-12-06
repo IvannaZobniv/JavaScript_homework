@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 13-4</title>
+</head>
+<body>
+<script>
+    let timerWindow = null;
+
+    function openClockWindow() {
+        timerWindow = window.open('', '', 'width=200,height=100,top=50%,left=50%,margin-top=-50px,margin-left=-100px');
+        timerWindow.document.write('<title>Годинник</title>');
+        timerWindow.document.write('<h1 style="text-align: center;" id="clock"></h1>');
+        startClock();
+    }
+
+    function closeClockWindow() {
+        if (timerWindow !== null && !timerWindow.closed) {
+            timerWindow.close();
+            timerWindow = null;
+        }
+    }
+
+    function displayTime() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        return `${hours}:${minutes}:${seconds}`;
+    }
+
+    function startClock() {
+        const clockElement = timerWindow.document.getElementById('clock');
+        setInterval(() => {
+            clockElement.innerText = displayTime();
+        }, 1000);
+    }
+</script>
+    <button onclick="openClockWindow()">Запустити годинник</button>
+    <button onclick="closeClockWindow()">Зупинити годинник</button>
+</body>
+</html>

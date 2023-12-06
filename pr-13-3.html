@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 13-3</title>
+</head>
+<body>
+<script>
+    function redirectToURL() {
+        const userInput = prompt('Введіть URL:');
+        if (userInput) {
+            let fullURL = userInput.toLowerCase();
+            if (!fullURL.startsWith('http://') && !fullURL.startsWith('https://')) {
+                fullURL = 'https://' + fullURL; // Додати протокол, якщо відсутній
+            }
+            window.location.href = fullURL;
+        }
+    }
+</script>
+    <button onclick="redirectToURL()">Перейти за URL</button>
+</body>
+</html>
