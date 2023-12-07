@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 14-4</title>
+</head>
+<body>
+    <ul id="myList">
+        <li>Перший елемент списку</li>
+        <li>Другий елемент списку</li>
+    </ul>
+<script>
+    function addListItem() {
+        let userInput = prompt("Введіть текст:");
+
+        if (userInput) {
+            let myList = document.getElementById("myList");
+            let newListItem = document.createElement("li");
+            newListItem.textContent = userInput;
+            myList.appendChild(newListItem);
+        }
+    }
+</script>
+    <a href="#" onclick="addListItem()">Додати елемент до списку</a>
+</body>
+</html>

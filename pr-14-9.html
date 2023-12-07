@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 14-9.Валідація</title>
+    <style>
+        input[type="text"],
+        input[type="password"] {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <label for="login"></label><input type="text" id="login" placeholder="Логін"><br>
+        <label for="password"></label><input type="password" id="password" placeholder="Пароль"><br>
+        <label for="confirmPassword"></label><input type="password" id="confirmPassword" placeholder="Підтвердження пароля"><br>
+        <button type="button" onclick="submitForm()">Відправити</button>
+    </form>
+<script>
+    function submitForm() {
+        const login = document.getElementById("login").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        let isValid = true;
+
+        // Перевірка логіна на пустоту
+        if (login === "") {
+            document.getElementById("login").style.borderColor = "red";
+            isValid = false;
+        } else {
+            document.getElementById("login").style.borderColor = "";
+        }
+
+        // Перевірка пароля на довжину
+        if (password.length <= 6) {
+            document.getElementById("password").style.borderColor = "red";
+            document.getElementById("confirmPassword").style.borderColor = "red";
+            document.getElementById("password").value = "";
+            document.getElementById("confirmPassword").value = "";
+            isValid = false;
+        } else {
+            document.getElementById("password").style.borderColor = "";
+            document.getElementById("confirmPassword").style.borderColor = "";
+        }
+
+        // Перевірка на співпадіння паролів
+        if (password !== confirmPassword) {
+            document.getElementById("password").style.borderColor = "red";
+            document.getElementById("confirmPassword").style.borderColor = "red";
+            document.getElementById("password").value = "";
+            document.getElementById("confirmPassword").value = "";
+            isValid = false;
+        } else {
+            document.getElementById("password").style.borderColor = "";
+            document.getElementById("confirmPassword").style.borderColor = "";
+        }
+
+        if (isValid) {
+            document.getElementById("myForm").submit();
+        }
+    }
+</script>
+</body>
+</html>

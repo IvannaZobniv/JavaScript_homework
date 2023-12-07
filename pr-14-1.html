@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 14-1</title>
+</head>
+<body>
+<script>
+    let timerInterval;
+
+    function displayTime() {
+        document.getElementById("timeDisplay").innerText = new Date().toLocaleTimeString();
+    }
+
+    function startClock() {
+        timerInterval = setInterval(displayTime, 1000);
+    }
+
+    function stopClock() {
+        clearInterval(timerInterval);
+    }
+
+    // Отримання вмісту через властивість nodeValue
+    // function displayTime() {
+    //     const timeDisplay = document.getElementById("timeDisplay");
+    //     const currentTime = new Date().toLocaleTimeString();
+    //     timeDisplay.firstChild.nodeValue = `Поточний час: ${currentTime}`;
+    // }
+    //
+    // function startClock() {
+    //     const timeDisplay = document.getElementById("timeDisplay");
+    //     const currentTime = new Date().toLocaleTimeString();
+    //
+    //     // Створення текстового вузла
+    //     const textNode = document.createTextNode(`Поточний час: ${currentTime}`);
+    //
+    //     // Встановлення тексту через властивість nodeValue
+    //     timeDisplay.appendChild(textNode);
+    //     timerInterval = setInterval(displayTime, 1000);
+    // }
+    //
+    // function stopClock() {
+    //     clearInterval(timerInterval);
+    // }
+
+</script>
+    <div id="timeDisplay"></div>
+    <a href="#" onclick="displayTime()">Показати час</a><br>
+    <a href="#" onclick="startClock()">Запустити годинник</a><br>
+    <a href="#" onclick="stopClock()">Зупинити годинник</a>
+</body>
+</html>

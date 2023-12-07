@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" >
+    <title>Практична робота 14-8.Фотоальбом</title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<script type="text/javascript" src="photos.js"></script>
+<script type="text/javascript">
+    var index = 0;
+
+    function nextPhoto() {
+        var img = document.getElementById("photo");
+        index++;
+        if (index >= photos.length)
+            index = 0;
+        img.src = "images/"+photos[index];
+    }
+    function previousPhoto() {
+        var img = document.getElementById("photo");
+        index--;
+        if (index < 0)
+            index = photos.length - 1;
+        img.src = "images/" + photos[index];
+    }
+
+    window.onload = function() {
+        var img = document.getElementById("photo");
+        img.src = "images/"+photos[index];
+        // img.onclick = nextPhoto;
+
+        var prevButton = document.createElement("button");
+        prevButton.textContent = "Назад";
+        prevButton.onclick = previousPhoto;
+        // document.body.appendChild(prevButton);
+
+        var nextButton = document.createElement("button");
+        nextButton.textContent = "Вперед";
+        nextButton.onclick = nextPhoto;
+        // document.body.appendChild(nextButton);
+
+        // var buttonsDiv = document.createElement("div");
+        // buttonsDiv.style.textAlign = "center";
+        // buttonsDiv.style.marginBottom = "10px";
+        //
+        // var h1 = document.createElement("h1");
+        // h1.textContent = "Фотоальбом";
+        // h1.style.textAlign = "center";
+        // h1.style.marginBottom = "5px";
+        //
+        // buttonsDiv.appendChild(prevButton);
+        // buttonsDiv.appendChild(nextButton);
+        //
+        // document.body.appendChild(h1);
+        // document.body.appendChild(buttonsDiv);
+        // document.body.appendChild(img);
+    }
+</script>
+    <h1 style = "text-align:center">Фотоальбом</h1>
+    <div id="buttons" style="text-align: center;">
+        <button onclick="previousPhoto()" >Назад</button>
+        <button onclick="nextPhoto()" >Вперед</button>
+    </div><br>
+    <div style="width:640px; height:480px; margin:auto">
+        <img id="photo">
+    </div>
+</body>
+</html>

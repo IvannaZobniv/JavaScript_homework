@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 14-5</title>
+</head>
+<body>
+<ul id="myList">
+    <li>Перший елемент списку</li>
+    <li>Другий елемент списку</li>
+</ul>
+<script>
+    function addListFinish() {
+        let userInput = prompt("Введіть текст:");
+
+        if (userInput) {
+            let myList = document.getElementById("myList");
+            let newListItem = document.createElement("li");
+            newListItem.textContent = userInput;
+            myList.appendChild(newListItem);
+        }
+    }
+    function addListStart() {
+        let userInput = prompt("Введіть текст:");
+
+        if (userInput !== null) {
+            let myList = document.getElementById("myList");
+            let newListItem = document.createElement("li");
+            newListItem.textContent = userInput;
+            myList.prepend(newListItem); // Додаємо елемент на початок списку
+        }
+    }
+    function removeFirst() {
+        let myList = document.getElementById("myList");
+        let firstItem = myList.firstElementChild;
+        if (firstItem) {
+            myList.removeChild(firstItem); // Видаляємо перший елемент
+        }
+    }
+
+    function removeLast() {
+        let myList = document.getElementById("myList");
+        let lastItem = myList.lastElementChild;
+        if (lastItem) {
+            myList.removeChild(lastItem); // Видаляємо останній елемент
+        }
+    }
+</script>
+    <a href="#" onclick="addListStart()">Додати елемент на початок списку</a><br>
+    <a href="#" onclick="addListFinish()">Додати елемент на кінець списку</a><br>
+    <a href="#" onclick="removeFirst()">Видалити перший елемент</a><br>
+    <a href="#" onclick="removeLast()">Видалити останній елемент</a>
+</body>
+</html>

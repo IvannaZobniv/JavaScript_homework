@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 14-6</title>
+</head>
+<body>
+<script>
+    let timerInterval;
+
+    function displayTime() {
+        document.getElementById("timeDisplay").innerText = new Date().toLocaleTimeString();
+    }
+
+    function startClock() {
+        timerInterval = setInterval(displayTime, 1000);
+    }
+
+    function stopClock() {
+        clearInterval(timerInterval);
+    }
+</script>
+    <div id="timeDisplay" onclick="displayTime()" style="cursor: pointer;">Показати час</div><br>
+    <div onclick="startClock()" style="cursor: pointer; color: brown">Запустити годинник</div><br>
+    <div onclick="stopClock()" style="cursor: pointer; color: darkcyan ">Зупинити годинник</div>
+</body>
+</html>

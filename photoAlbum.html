@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="uk">
+<head>
+	<title>Фотоальбом</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<style type="text/css">
+	</style>
+	<script type="text/javascript" src="photos.js">
+	</script>
+	<script type="text/javascript">
+		var index = 0;
+
+		function nextPhoto()
+		{
+			var img = document.getElementById("photo");
+			index++;
+			if (index >= photos.length)
+				index = 0;
+			img.src = "images/"+photos[index];
+		}
+
+		window.onload = function()
+		{
+			var img = document.getElementById("photo");
+			img.src = "images/"+photos[index];
+			img.onclick = nextPhoto;
+		}
+
+	</script>
+</head>
+<body>
+	<h1 style = "text-align:center">Фотоальбом</h1>
+	<div style="width:640px; height:480px; margin:auto">
+		<img id="photo">
+	</div>
+</body>
+</html>

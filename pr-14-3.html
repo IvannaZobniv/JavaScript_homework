@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 14-3</title>
+</head>
+<body>
+<script>
+    let timerInterval;
+    let colors = ['red', 'green', 'blue','orange', ' pink ','purple',' violet'];
+    let colorIndex = 0;
+    let positions = ['left', 'center', 'right',];
+    let positionIndex = 0;
+
+    function displayTime() {
+        const timeDisplay = document.getElementById("timeDisplay");
+        const currentTime = new Date().toLocaleTimeString();
+
+        timeDisplay.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+
+        timeDisplay.style.textAlign = positions[positionIndex];
+        positionIndex = (positionIndex + 1) % positions.length;
+
+        timeDisplay.innerText = currentTime;
+    }
+
+    function startClock() {
+        timerInterval = setInterval(displayTime, 1000);
+    }
+
+    function stopClock() {
+        clearInterval(timerInterval);
+    }
+
+</script>
+    <div id="timeDisplay"></div>
+    <a href="#" onclick="displayTime()">Показати час</a><br>
+    <a href="#" onclick="startClock()">Запустити годинник</a><br>
+    <a href="#" onclick="stopClock()">Зупинити годинник</a>
+</body>
+</html>
